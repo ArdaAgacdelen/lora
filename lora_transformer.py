@@ -10,8 +10,8 @@ from lora_layers import LoRAEmbeddingLayer, LoRALinearLayer
 class LoraConfig:
     rank: int = 8
     bias: Literal["none", "all", "lora_biases"] = "none"
-    lora_alpha: float = 16.0
-    lora_dropout: float = 0.0
+    alpha: float = 16.0
+    dropout: float = 0.0
 
     modelComponents = Literal["word_embeddings", "query", "key", "value", "dense", "classifier"]
     target_modules: Optional[Union[modelComponents, list[modelComponents]]] = None
