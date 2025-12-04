@@ -1,0 +1,9 @@
+[project]
+name = "article2"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.9"
+dependencies = [
+    "safetensors>=0.7.0",
+    "torch>=2.8.0",
+]
