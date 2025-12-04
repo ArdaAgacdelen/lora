@@ -74,8 +74,8 @@ class LoraModel(nn.Module):
                                                 out_features=child.out_features,
                                                 bias=True if child.bias is not None else False,
                                                 rank=self.config.rank,
-                                                alpha=self.config.lora_alpha,
-                                                dropout=self.config.lora_dropout)
+                                                alpha=self.config.alpha,
+                                                dropout=self.config.dropout)
 
                     new_layer.load_pretrained_parameters(child.state_dict())
                     setattr(module, name, new_layer)
@@ -85,8 +85,8 @@ class LoraModel(nn.Module):
                     new_layer = LoRAEmbeddingLayer(num_embeddings=child.num_embeddings,
                                                    embedding_dim=child.embedding_dim,
                                                    rank=self.config.rank,
-                                                   alpha=self.config.lora_alpha,
-                                                   dropout=self.config.lora_dropout)
+                                                   alpha=self.config.alpha,
+                                                   dropout=self.config.dropout)
 
                     new_layer.load_pretrained_parameters(child.state_dict())
                     setattr(module, name, new_layer)

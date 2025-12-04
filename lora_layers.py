@@ -35,7 +35,7 @@ class LoRALinearLayer(LoRABaseLayer, nn.Linear):
         self.lora_B = nn.Parameter(torch.zeros(rank, out_features))
 
         # LoRA matrix A initialized with Gaussian normal distribution
-        self.lora_A = nn.Parameter(torch.zeros(rank, out_features))
+        self.lora_A = nn.Parameter(torch.zeros(in_features, rank))
         nn.init.normal_(self.lora_A, mean=0.0, std=0.02)
 
     def sum_weights(self):
